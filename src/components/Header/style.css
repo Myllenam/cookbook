@@ -1,0 +1,9 @@
+@tailwind utilities;
+
+@layer utilities {
+  .icon {
+    height: 30px !important;
+    width: 30px !important;
+    color: theme("colors.white");
+  }
+}

@@ -1,29 +1,37 @@
-import { FC } from "react";
-import { Toolbar, Typography } from "@mui/material";
+import { FC, useState } from "react";
+import { IconButton, Toolbar } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import { useLocation } from "react-router-dom";
 
+import "./style.css";
 import logo from "src/assets/CookBook.png";
+import { DesktopMenu, MenuList, MobileMenu } from "./components";
 
-export const Header:FC = () => {
+export const Header: FC = () => {
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const { pathname } = useLocation();
+  const path = pathname.split("/")[1] || "/";
+  const toggleMobileMenu = () => setShowMobileMenu((prev) => !prev);
+
   return (
-    <AppBar
-      position="sticky"
-      className=" !bg-primary-300 h-[75px] !bg-opacity-75 sm:h-[50px] "
-    >
+    <AppBar position="sticky" className=" !bg-primary-300 !bg-opacity-75  p-1">
       <Toolbar>
-        <img src={logo} className="w-[80px] ml-[70px] sm:w-[50px] sm:ml-0" />
-        <div className="flex items-center gap-[60px] sm:hidden pl-[60px]">
-          <Typography variant="h2" className="!font-extraBold text-main-darkBg">
-            Home
-          </Typography>
-          <Typography variant="h2" className="!font-semiBold text-main-darkBg">
-            Receitas
-          </Typography>
-          <Typography variant="h2" className="!font-semiBold text-main-darkBg">
-            Adicionar Receita
-          </Typography>
+        <div className="flex items-center sm:justify-between sm:w-full">
+          <IconButton
+            className="md:!hidden lg:!hidden"
+            onClick={toggleMobileMenu}
+          >
+            <MenuOutlinedIcon className="icon" />
+          </IconButton>
+          <img src={logo} className="w-[70px] sm:w-[50px] ml-[70px] sm:ml-0" />
         </div>
+        <DesktopMenu path={path} />
       </Toolbar>
+
+      <MobileMenu isVisible={showMobileMenu}>
+        <MenuList path={path} isMobile={true} onClose={toggleMobileMenu} />
+      </MobileMenu>
     </AppBar>
   );
 };

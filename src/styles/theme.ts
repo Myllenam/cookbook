@@ -1,9 +1,9 @@
 import { createTheme } from "@mui/material";
 
 let theme = createTheme({
-  typography:{
+  typography: {
     fontFamily: "Montserrat, sans-serif",
-  }
+  },
 });
 
 theme = createTheme(theme, {
