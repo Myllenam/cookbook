@@ -14,6 +14,10 @@ export const router = createBrowserRouter([
         lazy: async () => await import("../pages/Recipes"),
       },
       {
+        path: "receitas/:id",
+        lazy: async () => await import("../pages/DetailRecipePage"),
+      },
+      {
         path: "novaReceita",
         lazy: async () => await import("../pages/AddRecipe"),
       },
