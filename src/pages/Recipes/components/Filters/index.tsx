@@ -2,6 +2,7 @@ import { FC, useState, FormEvent } from "react";
 import { Button, Select, MenuItem, TextField, Typography, FormControl } from "@mui/material";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
+
 import { IRecipeParams } from "src/models";
 
 const categories = ["Almoço", "Bebida", "Café da Manhã", "Doce", "Jantar", "Salgado"];
@@ -18,8 +19,9 @@ export const Filters: FC<{ onSetParams: (params: IRecipeParams) => void }> = ({
   const [search, setSearch] = useState<string>("");
   const [showAdvancedSearch, setShowAdvancedSearch] = useState<boolean>(false);
   const [category, setCategory] = useState<string | string>("");
-  const [prepTime, setPrepTime] = useState<string | string>("");
-console.log(prepTime)
+  const [prepTime, setPrepTime] = useState<number | string>("");
+
+
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     const params: IRecipeParams = {
