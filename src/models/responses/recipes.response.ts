@@ -8,3 +8,7 @@ export interface IRecipe {
     category: string;
     difficulty: EDifficulty;
   }
+  export interface IRecipeResponse {
+    items:IRecipe[];
+    totalPages?: number
+  }

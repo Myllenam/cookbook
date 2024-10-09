@@ -12,8 +12,8 @@ export const menuItems: IHeaderItems[] = [
     path: "receitas",
     text: "Receitas",
   },
-  {
-    path: "novaReceita",
-    text: "Adicionar Receita",
-  },
+  // {
+  //   path: "novaReceita",
+  //   text: "Adicionar Receita",
+  // },
 ];

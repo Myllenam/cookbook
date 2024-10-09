@@ -6,12 +6,13 @@ import { Box } from "@mui/material";
 
 export const PaginationControlled: FC<{
   page: number;
+  totalPages:number;
   handleChange: (event: React.ChangeEvent<unknown>, value: number) => void;
-}> = ({ page, handleChange }) => {
+}> = ({ page, handleChange,totalPages }) => {
   return (
     <Box className="bg-primary-200 mt-[60px] p-[10px] rounded-[26px]" component="div">
     <Stack spacing={2}>
-      <Pagination count={2} page={page} onChange={handleChange}/>
+      <Pagination count={totalPages} page={page} onChange={handleChange}/>
     </Stack>
     </Box>
   );

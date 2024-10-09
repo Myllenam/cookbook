@@ -7,6 +7,14 @@ let theme = createTheme({
 });
 
 theme = createTheme(theme, {
+  palette: {
+    primary: {
+      main: "#F37187",
+    },
+    secondary: {
+      main: "#E5BC5D",
+    },
+  },
   typography: {
     h1: {
       fontSize: "20px",

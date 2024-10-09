@@ -5,7 +5,7 @@ import { Recipes } from "./components/Recipes";
 import { Filters } from "./components/Filters";
 import { useGetRecipes } from "src/hooks/useGetRecipes";
 import { PaginationControlled } from "./components/Pagination";
-import { IRecipeParams } from "src/models";
+import { IRecipe, IRecipeParams } from "src/models";
 
 export const Component: FC = () => {
   const [page, setPage] = useState(1);
@@ -42,8 +42,8 @@ export const Component: FC = () => {
             <h1>ERRO</h1>
           ) : (
             <>
-              <Recipes recipes={recipes} />
-              <PaginationControlled handleChange={handleChange} page={page} />
+              <Recipes recipes={recipes?.items as IRecipe[]} />
+              <PaginationControlled totalPages={recipes?.totalPages as number} handleChange={handleChange} page={page} />
             </>
           )}
         </>

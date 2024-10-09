@@ -1,5 +1,6 @@
 import { AppThemeProvider, Router } from "./providers";
 
+
 function App() {
   return (
     <AppThemeProvider>

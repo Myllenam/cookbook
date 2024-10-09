@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 
-import { IRecipe, IRecipeParams } from "src/models";
+import { IRecipeParams, IRecipeResponse } from "src/models";
 import { api } from "src/services/requests";
 
-
 export const useGetRecipes = (params: IRecipeParams) => {
-  const [recipes, setRecipes] = useState<IRecipe[]>([]);
+  const [recipes, setRecipes] = useState<IRecipeResponse | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -20,9 +19,9 @@ export const useGetRecipes = (params: IRecipeParams) => {
         setRecipes(response.data);
       } catch (err: any) {
         setError(err.message);
+      } finally {
+        setLoading(false);
       }
-
-      setLoading(false);
     };
 
     fetchRecipes();

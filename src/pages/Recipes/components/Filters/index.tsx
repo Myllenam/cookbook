@@ -4,14 +4,7 @@ import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 
 import { IRecipeParams } from "src/models";
-
-const categories = ["Almoço", "Bebida", "Café da Manhã", "Doce", "Jantar", "Salgado"];
-const prepTimes = [
-  { label: "Até 15 min", value: 15 },
-  { label: "Até 30 min", value: 30 },
-  { label: "Até 60 min", value: 60 },
-  { label: "Até 120 min", value: 120 },
-];
+import { categories, prepTimes } from "./utils";
 
 export const Filters: FC<{ onSetParams: (params: IRecipeParams) => void }> = ({
   onSetParams,
@@ -59,7 +52,7 @@ export const Filters: FC<{ onSetParams: (params: IRecipeParams) => void }> = ({
           </Typography>
         </button>
         {showAdvancedSearch && (
-          <div className="flex gap-[15px]">
+          <div className="flex gap-[15px] sm:flex-col">
             <FormControl className="w-[230px]">
               <Select
                 value={category}
@@ -109,7 +102,7 @@ export const Filters: FC<{ onSetParams: (params: IRecipeParams) => void }> = ({
         )}
       </div>
       {(search || showAdvancedSearch) && (
-        <Button type="submit" variant="contained" className="!bg-primary-400">
+        <Button type="submit" variant="contained">
           Buscar
         </Button>
       )}
