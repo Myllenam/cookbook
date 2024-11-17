@@ -10,13 +10,13 @@ const goals = [
 
 export const Goals: FC = () => {
   return (
-    <div className="flex flex-col gap-[40px] items-center pt-[60px]">
+    <div className="flex flex-col gap-[40px] items-center p-[20px]">
       <Typography variant="h1" className="!font-semiBold text-main-darkBg">
         Objetivos do CookBook:
       </Typography>
       <div className="flex flex-wrap gap-[25px] justify-center">
         {goals.map((item, index) => (
-            <div className="w-[300px] p-[25px] rounded-[8px] shadow-lg">
+            <div className="w-[300px] p-[20px] rounded-[8px] shadow-lg">
           <Typography key={index} variant="body1" className="text-neutral-700 text-center">
             {item}
           </Typography>

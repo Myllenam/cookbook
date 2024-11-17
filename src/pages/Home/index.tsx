@@ -1,12 +1,11 @@
 import { FC } from "react";
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { Carroussel } from "src/components";
 import { IntroductionSection } from "./components/IntroductionSection";
 import { useNavigate } from "react-router-dom";
 import { Goals } from "./components/Goals";
 
 export const Component: FC = () => {
-
   const navigate = useNavigate();
   const goToRecipePage = () => {
     navigate("/receitas");
@@ -18,11 +17,20 @@ export const Component: FC = () => {
         <Carroussel />
       </div>
       <div className=" w-full flex justify-evenly sm:items-center sm:flex-col p-7">
-        <div className="flex flex-col gap-[30px]">
+        <div className="flex flex-col gap-[30px] items-center">
           <Typography variant="h1" className="!font-semiBold text-main-darkBg">
             Bem vindo ao CookBook!
           </Typography>
-          <IntroductionSection gotoRecipePage={goToRecipePage}/>
+          <IntroductionSection />
+
+          <Button
+            variant="contained"
+            color="primary"
+            className="mt-4 !p-[10px] w-[200px]"
+            onClick={goToRecipePage}
+          >
+            Ir para receitas
+          </Button>
         </div>
 
         <img
@@ -32,7 +40,7 @@ export const Component: FC = () => {
           }
         />
       </div>
-      <Goals/>
+      <Goals />
     </div>
   );
 };

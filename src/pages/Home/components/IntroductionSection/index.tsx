@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { Typography, Button } from '@mui/material';
+import { Typography } from '@mui/material';
 
-export const IntroductionSection:FC <{gotoRecipePage:()=>void}>= ({gotoRecipePage}) => {
+export const IntroductionSection:FC = () => {
   return (
     <div className=" rounded-lg text-center max-w-lg mx-auto">
       <Typography variant="body1" component="p" className="text-main-darkBg mb-4 text-justify">
@@ -18,9 +18,6 @@ export const IntroductionSection:FC <{gotoRecipePage:()=>void}>= ({gotoRecipePag
         Seja para uma refeição do dia a dia ou algo especial, o CookBook é o lugar certo para inspirar, criar e compartilhar. Comece a explorar agora e transforme sua paixão pela culinária em um momento delicioso de troca e aprendizado!
       </Typography>
 
-      <Button variant="contained" color="primary" className="mt-4" onClick={gotoRecipePage}>
-        Ir para receitas
-      </Button>
     </div>
   );
 };
